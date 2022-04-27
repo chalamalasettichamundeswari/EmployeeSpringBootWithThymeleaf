@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<title>Search Employee</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="border-radius:12px;font-size:12px">
+<nav style="background-color:black;color:white;height:50px;">
+<p style="padding:14px">Employee Management System</p>
+</nav>
+<div style="text-align:center">
+<h4>Search Employee</h4 >
+<form th:action="@{/displayEmployee}" th:object="${employee}" method="post">
+ <div class="form-group">
+Employee Id :<br/> <input type="text" th:field="*{id}" required/></div>
+ <button type="submit" class="btn btn-primary">Search</button>
+</form><br/>
+<a th:href="displayEmployees">View All</a>
+</div>
+</body>
+</html >

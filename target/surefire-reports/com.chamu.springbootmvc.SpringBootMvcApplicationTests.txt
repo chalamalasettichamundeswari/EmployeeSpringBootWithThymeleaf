@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.chamu.springbootmvc.SpringBootMvcApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.044 s - in com.chamu.springbootmvc.SpringBootMvcApplicationTests

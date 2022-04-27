@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOG_DIR" value="/Users/chamundeswari/Documents/workspace-spring-tool-suite-4-4.14.0.RELEASE/logs" />
+	<property name="FILE_PREFIX" value="employee" />
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- select the class from the logback API,logback libraries click the control+shift+T to select the class file.-->
+		<file>${LOG_DIR}/${FILE_PREFIX}.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss}-%msg%n</Pattern>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- 
+1.Name pattern when it rolls the file or when it archives our log files
+2.What timing and size policy that it should use will be defined inside this rollingPolicy
+-->
+			<fileNamePattern>${LOG_DIR}/archived/${FILE_PREFIX}.%d{yyyy-MM-dd HH:mm:ss}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+	<root level="info">
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

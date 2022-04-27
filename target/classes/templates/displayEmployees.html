@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<title>Display Employees</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  background-color:black;
+  color:white;
+  padding:8px;
+  font-size:10px;
+}
+td{
+  background-color:lightgrey;
+  color:black;
+  font-size:8px;
+  padding:8px;
+}
+
+a{
+	background-color:dodgerblue;
+	color:white;
+	border-radius:5px;
+	font-size:8px;	
+	padding:5px;
+}
+</style>
+</head>
+<body>
+<nav style="background-color:black;color:white;height:50px;">
+<p style="padding:14px">Employee Management System</p>
+<a style="margin-left:80%" th:href="viewEmployee">Search</a>
+</nav>
+<div style="margin:15px">
+<h5>List Students</h5>
+<a th:href="createEmployee">Add Employee</a><br/><br/>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Employee First Name</th>
+<th>Employee Last Name</th>
+<th>Employee Email</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="employee:${employees}">
+<td th:text="${employee.first_name}"></td>
+<td th:text="${employee.last_name}"></td>
+<td th:text="${employee.email}"></td>
+<td><a th:href="@{'updateEmployee?id='+${employee.id}}">Update</a>
+    <a th:href="@{'deleteEmployee?id='+${employee.id}}">Delete</a>
+</td>
+<tr>
+</tbody>
+</table>
+</div>
+</body>
+</html >

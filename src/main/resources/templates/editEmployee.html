@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+<title>Edit Employee</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="border-radius:12px;font-size:12px">
+<nav style="background-color:black;color:white;height:50px;">
+<p style="padding:14px">Employee Management System</p>
+<a style="margin-left:90%;" th:href="viewEmployee">Search</a>
+</nav>
+
+<div style="text-align:center">
+	<h4>Edit Employee</h4>
+	<form 
+	th:action="updateEmp" 
+	method="post">
+	 <div class="form-group">
+	<label>Employee Id :</label><br/>
+	<input type="text" name ="id" th:value="${employee.id}" readonly required/><div/>
+	 <div class="form-group">
+	<label>Employee FirstName :</label><br/>
+	<input type="text" name ="first_name" th:value="${employee.first_name}" required/><div/>
+     <div class="form-group">
+    <label>Employee LastName :</label><br/>
+	<input type="text" name ="last_name" th:value="${employee.last_name}" required/><div/>
+	 <div class="form-group">
+	<label>Employee email :</label><br/>
+	<input type="text" name ="email" th:value="${employee.email}" required/><div/><br/>
+	<button type="submit" class="btn btn-primary">Save</button>
+	</form><br/>
+	<p th:text="${msg}"></p>
+	<a th:href="displayEmployees">View All</a>
+</div>
+</body>
+</html>
